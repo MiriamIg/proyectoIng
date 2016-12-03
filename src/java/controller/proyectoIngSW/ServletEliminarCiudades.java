@@ -36,7 +36,7 @@ public class ServletEliminarCiudades extends HttpServlet {
         
         otro.setString(1,idCdElim); 
         otro.execute();  
-        out.println("Se borro ciudad");
+        out.println("Se borro ciudadad");
         }catch(Exception e){
         out.println(e.getMessage());  //invocaremos la exception
     }
