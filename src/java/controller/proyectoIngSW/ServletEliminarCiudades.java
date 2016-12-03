@@ -19,10 +19,12 @@ import model.proyectoIngSW.Conexion;
  *
  * @author Miry
  */
-public class ServletEliminarRutas extends HttpServlet {
+public class ServletEliminarCiudades extends HttpServlet {
+
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
         String idRutaElim= request.getParameter("idRutaElim");
@@ -30,13 +32,15 @@ public class ServletEliminarRutas extends HttpServlet {
         try{
         Conexion c=new Conexion();
         Connection con=c.conectarse();
-        CallableStatement otro=con.prepareCall("{call ELIMINAR_RUTA(?)}");  
+        CallableStatement otro=con.prepareCall("{call ELIMINAR_CIUDAD(?)}");  
         
         otro.setString(1,idRutaElim); 
         otro.execute();  
-        out.println("Se borro ruta");
+        out.println("Se borro ciudad");
         }catch(Exception e){
         out.println(e.getMessage());  //invocaremos la exception
     }
+
     }
+
 }

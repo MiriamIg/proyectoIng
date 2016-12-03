@@ -28,7 +28,7 @@
                             ciudad:     $("#ciudad").val(),
                             tel:        $("#tel").val(),
                             delMuni:    $("#delMuni").val(),
-                            cp:         $("#cp").val(),
+                            cp:         $("#cp").val()
                         },
                         success: function (datos) {
                             $("#resultado").html(datos);
@@ -52,8 +52,9 @@
                               $("#mis-ciudades").append("<tr class='info'>")
                               $("#mis-ciudades").append("<td>"+ val.idCiudad + "</td>"+
                                                      "<td>" +val.idRutaAsig+ "</td>"+
-                                                     "<td>" +val.tel + "</td>"+
-                                                     "<td>" +val.dir + "</td>"
+                                                     "<td>" +val.ciudad + "</td>"+
+                                                     "<td>" +val.dir + "</td>"+
+                                                      "<td>" +val.tel + "</td>"
                                                      )
                               $("#mis-ciudades").append("</tr>")
                             });
@@ -62,8 +63,48 @@
                         }
                     });
                 });
+                
+            $("#accionAct").click(function(){
+                    console.log('actualiza ciudad');
+                    $.ajax({   //para que se conecte a un servicio asincronicamente
+                        type: "post",  //va a recibir un formato json
+                        url: "ServletActualizarCiudades",
+                        data: {
+                            idCiudad   : $("#idCiudad").val(),
+                            idRutaAct  : $("#idRutaAct").val()
+                        },
+                        success: function (datos) {
+                            $("#resultado").html(datos);
+                            alert(datos);
+                        },
+                        failure: function () {
+                            alert("algo muy malo paso");
+                        }
+                    });
+                });
+                
+                $("#accionElim").click(function(){
+                    console.log('elimina ciudad');
+                    $.ajax({   //para que se conecte a un servicio asincronicamente
+                        type: "post",  //va a recibir un formato json
+                        url: "ServletEliminarCiudades",
+                        data: {
+                            idRutaElim: $("#idRutaElim").val()
+                        },
+                        success: function (datos) {
+                            $("#resultado").html(datos);
+                            alert(datos);
+                        },
+                        failure: function () {
+                            alert("algo muy malo paso");
+                        }
+                    });
+                });
+                
   
-     });   
+     });
+  
+       
             
         </script>
     </head>
@@ -183,7 +224,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button id="accionAct" type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -200,7 +241,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button id="accionElim" type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

@@ -90,8 +90,9 @@ public class Buscar {
                                    String idCiudad  =res.getString(1);     
                                    String idRutaAsig=res.getString(2);
                                    String ciudad    =res.getString(3);
-                                   String tel       =res.getString(4);
-                                   String dir       =res.getString(5);
+                                   String dir       =res.getString(4);
+                                   String tel       =res.getString(5);
+                                   
                                   
                       ciudades.add(new Ciudad(idCiudad, idRutaAsig,ciudad, tel, dir));
                       

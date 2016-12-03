@@ -48,6 +48,22 @@
         <servlet-name>ServletEliminarRutas</servlet-name>
         <servlet-class>controller.proyectoIngSW.ServletEliminarRutas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletGuardaCiudad</servlet-name>
+        <servlet-class>controller.proyectoIngSW.ServletGuardaCiudad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletBuscarCiudades</servlet-name>
+        <servlet-class>controller.proyectoIngSW.ServletBuscarCiudades</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletActualizarCiudades</servlet-name>
+        <servlet-class>controller.proyectoIngSW.ServletActualizarCiudades</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletEliminarCiudades</servlet-name>
+        <servlet-class>controller.proyectoIngSW.ServletEliminarCiudades</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletGuardaConductor</servlet-name>
         <url-pattern>/ServletGuardaConductor</url-pattern>
@@ -95,6 +111,22 @@
     <servlet-mapping>
         <servlet-name>ServletEliminarRutas</servlet-name>
         <url-pattern>/ServletEliminarRutas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletGuardaCiudad</servlet-name>
+        <url-pattern>/ServletGuardaCiudad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletBuscarCiudades</servlet-name>
+        <url-pattern>/ServletBuscarCiudades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletActualizarCiudades</servlet-name>
+        <url-pattern>/ServletActualizarCiudades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEliminarCiudades</servlet-name>
+        <url-pattern>/ServletEliminarCiudades</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -19,24 +19,31 @@ import model.proyectoIngSW.Conexion;
  *
  * @author Miry
  */
-public class ServletEliminarRutas extends HttpServlet {
+public class ServletActualizarCiudades extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        String idRutaElim= request.getParameter("idRutaElim");
-      
+
+        String idCiudad     =request.getParameter("idCiudad"); 
+        String idRutaAct    =request.getParameter("idRutaAct");
+       
         try{
         Conexion c=new Conexion();
         Connection con=c.conectarse();
-        CallableStatement otro=con.prepareCall("{call ELIMINAR_RUTA(?)}");  
+        CallableStatement actu=con.prepareCall("{call ACTUALIZAR_CIUDAD(?,?)}");  /// call y el nombre de tu procedimiento Y EL NUMERO DE PROCEDIMIENTOS QUE TENGAMOS
         
-        otro.setString(1,idRutaElim); 
-        otro.execute();  
-        out.println("Se borro ruta");
+        actu.setString(1,idCiudad);
+        actu.setString(2,idRutaAct);   ///tantos campos como se necesiten de nuestro proyecto de los my_ y respetrando su tipo de dato
+        
+        actu.execute();
+       
+        out.println("Se actualizo cd");
         }catch(Exception e){
         out.println(e.getMessage());  //invocaremos la exception
     }
+
     }
+
 }

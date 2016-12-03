@@ -14,17 +14,16 @@ public class Ciudad {
     private String idCiudad;
     private String idRutaAsig;
     private String ciudad;
-    private String tel;
     private String dir;
-    
-    public Ciudad(String idCiudad, String idRutaAsig, String ciudad, String tel, String dir) {
+    private String tel;
+
+    public Ciudad(String idCiudad, String idRutaAsig, String ciudad, String dir, String tel) {
         this.idCiudad = idCiudad;
         this.idRutaAsig = idRutaAsig;
         this.ciudad = ciudad;
-        this.tel = tel;
         this.dir = dir;
+        this.tel = tel;
     }
-
 
     public String getIdCiudad() {
         return idCiudad;
@@ -50,14 +49,6 @@ public class Ciudad {
         this.ciudad = ciudad;
     }
 
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
     public String getDir() {
         return dir;
     }
@@ -66,5 +57,12 @@ public class Ciudad {
         this.dir = dir;
     }
 
+    public String getTel() {
+        return tel;
+    }
 
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+   
 }
