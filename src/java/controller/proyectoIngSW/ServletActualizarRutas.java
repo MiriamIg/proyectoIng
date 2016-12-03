@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.time.Clock;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,25 +28,27 @@ public class ServletActualizarRutas extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         
-        String idRuta       = request.getParameter("ididRuta"); 
-        String matricAct    =request.getParameter("matricAct");
+        String idRuta  = request.getParameter("idRuta"); 
+        float KMAct    =Float.parseFloat(request.getParameter("KMAct"));
        
+        System.out.println("idurta--- "+idRuta);
+        System.out.println("kmact--- "+KMAct);
         try{
         Conexion c=new Conexion();
         Connection con=c.conectarse();
         CallableStatement actu=con.prepareCall("{call ACTUALIZAR_RUTA(?,?)}");  /// call y el nombre de tu procedimiento Y EL NUMERO DE PROCEDIMIENTOS QUE TENGAMOS
         
         actu.setString(1,idRuta);
-        actu.setString(2,matricAct); 
+        actu.setFloat(2,KMAct); 
         
         actu.execute();
        
-        out.println("Se actualizo ruta");
+        out.println("Se actualizo ruta"+idRuta+"--"+KMAct);
         }catch(Exception e){
         out.println(e.getMessage());  //invocaremos la exception
-    }
+            System.out.println("no se actualizooo");
+        }
 
     }
-
     
 }

@@ -48,11 +48,13 @@
 
                     });
             });
-            $("#buscaRuta").click(function(){
+            $("#buscaRutas").click(function(){
+                console.log('Buscar rutas');
                     $.ajax({   //para que se conecte a un servicio asincronicamente
                         dataType: "json",  //va a recibir un formato json
                         url: "ServletBuscarRutas",
                         success: function (datos) {  //datos ahi se deposita todo el json 
+                            alert(datos);
                             $("#mis-rutas").html("");   //length dice cuantos elemntos tiene
                             $.each(datos, function (key, val) {
                               $("#mis-rutas").append("<tr class='info'>")
@@ -77,8 +79,8 @@
                         type: "post",  //va a recibir un formato json
                         url: "ServletActualizarRutas",
                         data: {
-                            idRuta   : $("#idRuta").val(),
-                            matricAct: $("#matricAct").val()
+                            idRuta  : $("#idRuta").val(),
+                            KMAct   : $("#KMAct").val()
                         },
                         success: function (datos) {
                             $("#resultado").html(datos);
@@ -248,44 +250,6 @@
         </div>
         <br><br><br><br><br>
         <div class="col-md-offset-1"> 
-            
-        <table class="table">
-            <thead>
-                <tr class="info">
-                    <th>Ciudad</th>
-                    <th>Orden</th>
-                    
-                </tr>
-            </thead>
-            <tbody id="mis-ciudades">
-                <!--<div class="control-group" id="fields">-->
-                <label class="control-label" for="field1">Ciudades</label>
-                <!--<div class="controls"> -->
-              
-                    <!--<div class="entry input-group col-xs-3">-->
-                <!--    <div class=" entry input-group col-md-2">-->
-                        
-                       
-
-                    
-                        
-                <!--        <select class="form-control" name="fields[]">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-    
-                        </select>      -->
-                <!--        <input class="form-control" name="fields[]" type="text" placeholder="ciudad" />-->
-                <!--        <input class="form-control" name="coloniaC" type="text" placeholder="colonia" />
-                        <input class="form-control" name="CPC" type="text" placeholder="CP" />
-                        <input class="form-control" name="telC" type="text" placeholder="telefono" />-->
-                  
-            </tbody>
-        </table>
-            
-           
             <div  class="col-md-12">
             <center>  <input type="button" id="guardaRuta" o class="btn btn-primary btn-lg"  value="Guardar"/>
             
@@ -299,6 +263,7 @@
                 <tr class="info">
                     <th>Id Ruta</th>
                     <th>Matricula Bus</th>
+                    <th>KM  </th>
                     <th>Origen </th>
                     <th>Destino </th>
                     <th>Ciudades </th>
@@ -322,11 +287,11 @@
 <div class="modal fade" id="myModalAct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <div class="modal-header"><label><center>Actualizar Matricula Autobus</center></label>
+        <div class="modal-header"><center><label>Actualizar KM Ruta</label></center>
       </div>
       <div class="modal-body" id="modalBodyAct">
           <label>Id Ruta: </label><input type="text" id="idRuta" class="form-control" placeholder="id ruta">
-          <label>Actualizar Matricula:  </label><input type="text" id="matricAct" class="form-control" placeholder="matricula">
+          <label>Actualizar KM:  </label><input type="text" id="KMAct" class="form-control" placeholder="km">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

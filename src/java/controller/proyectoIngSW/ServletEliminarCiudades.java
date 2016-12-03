@@ -27,14 +27,14 @@ public class ServletEliminarCiudades extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String idRutaElim= request.getParameter("idRutaElim");
-      
+        String idCdElim= request.getParameter("idCdElim");
+        System.out.println("ciudad--"+ idCdElim);
         try{
         Conexion c=new Conexion();
         Connection con=c.conectarse();
         CallableStatement otro=con.prepareCall("{call ELIMINAR_CIUDAD(?)}");  
         
-        otro.setString(1,idRutaElim); 
+        otro.setString(1,idCdElim); 
         otro.execute();  
         out.println("Se borro ciudad");
         }catch(Exception e){

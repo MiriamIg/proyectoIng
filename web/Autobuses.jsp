@@ -70,7 +70,7 @@
                         url: "ServletActualizarBuses",
                         data: {
                             matricula     : $("#matricula").val(),
-                            idConductorAct: $("#idConductorAct").val()   
+                            modeloAct     : $("#modeloAct").val()   
                         },
                         success: function (datos) {
                             $("#resultado").html(datos);
@@ -174,7 +174,7 @@
       </div>
       <div class="modal-body" id="modalBodyAct">
           <label>Matricula Autobus: </label><input type="text" id="matricula" class="form-control" placeholder="matricula">
-          <label>Actualizar Id Conductor :</label><input type="text" id="idConductorAct" class="form-control" placeholder="id conductor">
+          <label>Actualizar modelo:</label><input type="text" id="modeloAct" class="form-control" placeholder="id conductor">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

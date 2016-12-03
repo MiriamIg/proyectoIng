@@ -28,7 +28,7 @@ public class ServletGuardaBus extends HttpServlet {
        String matriculaBus  = request.getParameter("matriculaBus");
        int idConductor      = Integer.parseInt(request.getParameter("idConductor"));
        String modelo        = request.getParameter("modelo");
-       int capacidad        = Integer.parseInt(request.getParameter("capacidad "));
+       int capacidad        = Integer.parseInt(request.getParameter("capacidad"));
        
          try{
         Conexion c=new Conexion();

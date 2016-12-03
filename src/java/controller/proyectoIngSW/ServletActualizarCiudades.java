@@ -26,20 +26,22 @@ public class ServletActualizarCiudades extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        String idCiudad     =request.getParameter("idCiudad"); 
-        String idRutaAct    =request.getParameter("idRutaAct");
+        String idCdAct  =request.getParameter("idCdAct"); 
+        String telAct    =request.getParameter("telAct");
        
+        System.out.println("idcd.."+idCdAct);
+         System.out.println("tel.."+telAct);
         try{
         Conexion c=new Conexion();
         Connection con=c.conectarse();
         CallableStatement actu=con.prepareCall("{call ACTUALIZAR_CIUDAD(?,?)}");  /// call y el nombre de tu procedimiento Y EL NUMERO DE PROCEDIMIENTOS QUE TENGAMOS
         
-        actu.setString(1,idCiudad);
-        actu.setString(2,idRutaAct);   ///tantos campos como se necesiten de nuestro proyecto de los my_ y respetrando su tipo de dato
+        actu.setString(1,idCdAct);
+        actu.setString(2,telAct);   ///tantos campos como se necesiten de nuestro proyecto de los my_ y respetrando su tipo de dato
         
         actu.execute();
        
-        out.println("Se actualizo cd");
+        out.println("Se actualizo telefono");
         }catch(Exception e){
         out.println(e.getMessage());  //invocaremos la exception
     }

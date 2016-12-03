@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +32,9 @@ public class ServletEliminarRutas extends HttpServlet {
         try{
         Conexion c=new Conexion();
         Connection con=c.conectarse();
+           // Statement st    =con.createStatement();
+          //  ResultSet res   =st.executeQuery("select * from RUTA");
+
         CallableStatement otro=con.prepareCall("{call ELIMINAR_RUTA(?)}");  
         
         otro.setString(1,idRutaElim); 

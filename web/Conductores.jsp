@@ -54,7 +54,7 @@
                             $("#mis-conductores").html("");   //length dice cuantos elemntos tiene
                             $.each(datos, function (key, val) {
                               $("#mis-conductores").append("<tr class='info'>")
-                              $("#mis-conductores").append("<td>"+ val.idConductor   + "</td>"+
+                              $("#mis-conductores").append("<td>"+ val.id_Conduct  + "</td>"+
                                                      "<td>" +val.nombreConduct+ "</td>"+
                                                      "<td>" +val.dir + "</td>"+
                                                      "<td>" +val.telConduct + "</td>"+
@@ -94,7 +94,7 @@
                         type: "post",
                         url: "ServletEliminarConductores",
                         data: {
-                            idRutaElim: $("#idRutaElim").val()
+                            idConductElim: $("#idConductElim").val()
                         },
                         success: function (datos) {
                             $("#resultado").html(datos);
@@ -242,10 +242,10 @@
 <div class="modal fade" id="myModalElim" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <div class="modal-header"><label><center>Eliminar Ciudad</center></label>
+        <div class="modal-header"><center><label>Eliminar Conductor</label></center>
       </div>
       <div class="modal-body" id="modalBodyElim">
-          <label>Id ciudad :    </label><input type="text" id="idConductElim" class="form-control" placeholder="id ciudad">
+          <label>Id Conductor :    </label><input type="text" id="idConductElim" class="form-control" placeholder="id conductor">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

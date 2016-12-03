@@ -70,8 +70,8 @@
                         type: "post",  //va a recibir un formato json
                         url: "ServletActualizarCiudades",
                         data: {
-                            idCiudad   : $("#idCiudad").val(),
-                            idRutaAct  : $("#idRutaAct").val()
+                            idCdAct  : $("#idCdAct").val(),
+                            telAct    : $("#telAct").val()
                         },
                         success: function (datos) {
                             $("#resultado").html(datos);
@@ -89,7 +89,7 @@
                         type: "post",  //va a recibir un formato json
                         url: "ServletEliminarCiudades",
                         data: {
-                            idRutaElim: $("#idRutaElim").val()
+                         idCdElim   : $("#idCdElim").val()
                         },
                         success: function (datos) {
                             $("#resultado").html(datos);
@@ -125,7 +125,7 @@
                 </div>
                 
                 <div class="col-md-2">    
-                <label for="exampleInputEmail1">Id Ruta</label>
+                <label for="exampleInputEmail1">Id Ruta Asignada</label>
                 <input type="text" id="idRutaAsig" class="form-control" >
                 </div>
                 
@@ -216,11 +216,11 @@
 <div class="modal fade" id="myModalAct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <div class="modal-header"><label><center>Actualizar Ruta de la Ciudad</center></label>
+        <div class="modal-header"><label><center>Actualizar Telefono</center></label>
       </div>
       <div class="modal-body" id="modalBodyAct">
-          <label>Id ciudad :  </label><input type="text" id="idCiudad" class="form-control" placeholder="id ciudad">
-          <label>Actualizar Id Ruta :    </label><input type="text" id="idRutaAct" class="form-control" placeholder="id ruta">
+          <label>Id ciudad :  </label><input type="text" id="idCdAct" class="form-control" placeholder="id ciudad">
+          <label>Actualizar tel. :    </label><input type="text" id="telAct" class="form-control" placeholder="(55)">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -237,7 +237,7 @@
         <div class="modal-header"><label><center>Eliminar Ciudad</center></label>
       </div>
       <div class="modal-body" id="modalBodyElim">
-          <label>Id ciudad :    </label><input type="text" id="idBusElim" class="form-control" placeholder="id ciudad">
+          <label>Id ciudad :    </label><input type="text" id="idCdElim" class="form-control" placeholder="id ciudad">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

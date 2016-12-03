@@ -27,8 +27,8 @@ public class ServletActualizarBuses extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String matricula    = request.getParameter("matricula"); 
-        int idConductorAct  =Integer.parseInt(request.getParameter("idConductorAct"));
+        String matricula    =request.getParameter("matricula"); 
+        String modeloAct    =request.getParameter("modeloAct");
        
         try{
         Conexion c=new Conexion();
@@ -36,10 +36,10 @@ public class ServletActualizarBuses extends HttpServlet {
         CallableStatement actu=con.prepareCall("{call ACTUALIZAR_AUTOBUS(?,?)}");
         
         actu.setString(1,matricula);
-        actu.setInt(2,idConductorAct);
+        actu.setString(2,modeloAct);
         actu.execute();
        
-        out.println("Se actualizo conductor del autobus");
+        out.println("Se actualizo modelo del autobus");
         }catch(Exception e){
         out.println(e.getMessage());  //invocaremos la exception
     }

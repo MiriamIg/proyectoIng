@@ -35,7 +35,7 @@ public class TestProcedimiento {
     }
     
     
-    public static void main(String args[])throws Exception{
+   public static void main(String args[])throws Exception{
      
         guardaConductor(3, "hjhjhjh", "ghghgh", "ggggg", 0, "mala");
         System.out.println("El id ingresado es:");
