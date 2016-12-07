@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title></title>
+		<title>Admin autobuses</title>
 		<meta charset="utf-8">
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/dcmDist/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="/dcmDist/js/bootstrap/js/fileinput.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        
                 <link rel="stylesheet" href="plantilla/css/reset.css" type="text/css" media="all">
 		<link rel="stylesheet" href="plantilla/css/layout.css" type="text/css" media="all">
 		<link rel="stylesheet" href="plantilla/css/style.css" type="text/css" media="all">
@@ -25,6 +34,48 @@
 				<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a>
 			</div>
 		<![endif]-->
+                <script>
+                    $(document).ready(function(){
+            $("#myModal").modal("show");	
+	
+        });
+            
+        $(document).on('click' , '#open' , function(){
+            $("#myModal").show();
+	$user=$("#user").val();
+	$passw=$("#passw").val();
+   
+            if($user!="" && $passw!=""){
+		var param="user="+$user+"&passw="+$passw;
+		$.ajax({
+                    type: 'GET',
+		    url: 'ServletLogin',
+                    data: param,
+                    beforeSend: function() {
+				$("#alerta").html(loading);
+				console.log(param);
+                    },
+                    success: function (dataResponse) {
+				console.log("dr"+dataResponse);
+				if (dataResponse == "true") {
+					$("#myModal ").modal("hide");					
+				}
+				else
+					$("#alerta").addClass("alert alert-danger").html("Usario o contrase\u00f1a incorrectos").show(0).delay(1800).hide(0);
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+				$('#resultados').html("");
+                    }
+		});	
+            }else{
+		$("#alerta").addClass("alert alert-success").html("Introduzca todos los datos").show(0).delay(1800).hide(0);
+            }
+
+        });
+
+                    
+                </script>
+                
 	</head>
 	<body id="page1">
 		<div class="main">
@@ -110,5 +161,48 @@
 					})
 			});
 		</script>
+          <!--MODAL -->      
+     <nav class="form-horizontal"> <!-- Tipo de modal -->
+	<div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content"> <!-- Contenido del modal -->
+	    
+	      <div class="modal-header"> <!-- Encabezado -->
+	        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+	        <h4 class="modal-title" id="myModalLabel" align="center">Acceso a menu Maniobras</h4>
+	       
+	      </div>
+	      
+	      <div class="modal-body"> <!-- Cuerpo -->
+	         
+	      <div class="form-group">
+	      	<label class="col-sm-2 control-label">Usuario</label>  
+	      	<div class="col-sm-10">    
+	        <input type="text" id="user" placeholder="Usuario" class="form-control" >
+	        </div>
+	      </div>
+	      
+	      <div class="form-group">	
+	      	<label class="col-sm-2 control-label">Contraseña</label>
+	      	<div class="col-sm-10">     
+	        <input type="password" id="passw" placeholder="Contraseña"  class="form-control">
+	         </div>
+	      </div>
+	      
+	      </div>
+	      
+	      <div class="modal-footer"> <!-- Pie de pagina -->
+	       	 <div  role="alert" id="alerta"></div>  
+	        <button type="button" class="btn btn-primary"  id="open" >Ingresar</button>
+	        <button type="button" class="btn btn-primary"  id="close" >Cancelar</button>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
+</nav>
+<!--   -->        
+                
+                
 	</body>
 </html>
