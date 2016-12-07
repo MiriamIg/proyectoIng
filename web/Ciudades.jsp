@@ -13,6 +13,24 @@
         <link rel="stylesheet" href="css/bootstrap.css"/>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <link rel="stylesheet"  href="css/mio.css"/>
+        
+        <!--ESTILO -->
+          <link rel="stylesheet" href="plantilla/css/reset.css" type="text/css" media="all">
+		<link rel="stylesheet" href="plantilla/css/layout.css" type="text/css" media="all">
+		<link rel="stylesheet" href="plantilla/css/style.css" type="text/css" media="all">
+		<script type="text/javascript" src="plantilla/js/jquery-1.6.js" ></script>
+		<script type="text/javascript" src="plantilla/js/cufon-yui.js"></script>
+		<script type="text/javascript" src="plantilla/js/cufon-replace.js"></script>  
+		<script type="text/javascript" src="plantilla/js/Vegur_300.font.js"></script>
+		<script type="text/javascript" src="plantilla/js/PT_Sans_700.font.js"></script>
+		<script type="text/javascript" src="plantilla/js/PT_Sans_400.font.js"></script>
+		<script type="text/javascript" src="plantilla/js/tms-0.3.js"></script>
+		<script type="text/javascript" src="plantilla/js/tms_presets.js"></script>
+		<script type="text/javascript" src="plantilla/js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="plantilla/js/atooltip.jquery.js"></script>
+        
+        
+        
         <title>ciudades</title>
         <script>
          $(document).ready(function (e) {
@@ -110,8 +128,35 @@
     </head>
     
     <body>
-        <h1><center>Ciudades</center></h1>
-        <br><br>
+           <!--header -->
+			<header>
+				<div class="wrapper">
+					<h1><a href="index.html" id="logo">Superior.com</a></h1>
+					<form id="search" method="post">
+						<fieldset>
+							<div class="bg"><input class="input" type="text" value="Search"  onblur="if(this.value=='') this.value='Search'" onFocus="if(this.value =='Search' ) this.value=''" ></div>
+						</fieldset>
+					</form>
+				</div>
+				<nav>
+					<ul id="menu">
+                                            <li ><a href="index.html"><span>Principal</span></a></li>
+                                            <li ><a href="Rutas.jsp"><span>Rutas</span></a></li>
+                                            <li class="active"><a href="Ciudades.jsp"><span>Ciudades</span></a></li>
+                                            <li><a href="Autobuses.jsp"><span>Autobuses</span></a></li>
+                                            <li><a href="Conductores.jsp"><span>Condutores</span></a></li>
+					</ul>
+				</nav>
+			</header>
+<!--header end-->
+        
+        <div class="row">
+            <div class="col-xs-6 col-sm-4"></div>
+            <div class="col-xs-6 col-sm-4"></div>
+            <!-- Optional: clear the XS cols if their content doesn't match in height -->
+            <div class="clearfix visible-xs-block"></div>
+            <div class="col-xs-6 col-sm-4"><p class="text-right"><img src="imgs/ciudad.jpg"></p> </div>
+        </div>
         
         <div class="col-md-offset-1">
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalAct" >Actualizar</button>
@@ -194,6 +239,7 @@
 
         <br><br><br>
 <!--TABLA VISUALIZA CIUDADES-->        
+<div class="col-md-10 col-md-offset-1">
 <table class="table">
     <thead>
         <tr class="info">
@@ -209,7 +255,7 @@
     
     
 </table>
-
+</div>
  <!--MODALS-->
 
   <!-- Modal actualizar-->

@@ -64,6 +64,10 @@
         <servlet-name>ServletEliminarCiudades</servlet-name>
         <servlet-class>controller.proyectoIngSW.ServletEliminarCiudades</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletLogin</servlet-name>
+        <servlet-class>controller.proyectoIngSW.ServletLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletGuardaConductor</servlet-name>
         <url-pattern>/ServletGuardaConductor</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>ServletEliminarCiudades</servlet-name>
         <url-pattern>/ServletEliminarCiudades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletLogin</servlet-name>
+        <url-pattern>/ServletLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
