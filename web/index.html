@@ -3,15 +3,15 @@
 	<head>
 		<title>Admin autobuses</title>
 		<meta charset="utf-8">
-                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/dcmDist/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-	<script src="/dcmDist/js/bootstrap/js/fileinput.js" type="text/javascript"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="css/bootstrap.css"/>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+
+		<!--bootstrap-->
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		
+        	<!--ESTILO-->
                 <link rel="stylesheet" href="plantilla/css/reset.css" type="text/css" media="all">
 		<link rel="stylesheet" href="plantilla/css/layout.css" type="text/css" media="all">
 		<link rel="stylesheet" href="plantilla/css/style.css" type="text/css" media="all">
@@ -35,15 +35,13 @@
 			</div>
 		<![endif]-->
                 <script>
-                    $(document).ready(function(){
-            $("#myModal").modal("show");	
-	
-        });
+             $(document).ready(function(){
+            	$("#myModal").modal("show");	
+	     });
             
-        $(document).on('click' , '#open' , function(){
-            $("#myModal").show();
-	$user=$("#user").val();
-	$passw=$("#passw").val();
+        $(document).on('click' , '#open' , function(){  
+		$user=$("#user").val();
+		$passw=$("#passw").val();
    
             if($user!="" && $passw!=""){
 		var param="user="+$user+"&passw="+$passw;
@@ -134,7 +132,7 @@
 			<footer>
 				
                             Ingieneria de Software &copy; 2016 <br> Ascencio Samanta<br>
-                            Estaban Ana Karen <br>
+                            Esteban Ana Karen <br>
                             Ignacio Jimenez Miriam
                                                             
 				<!-- {%FOOTER_LINK} -->
@@ -169,7 +167,7 @@
 	    
 	      <div class="modal-header"> <!-- Encabezado -->
 	        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
-	        <h4 class="modal-title" id="myModalLabel" align="center">Acceso a menu Maniobras</h4>
+	        <h4 class="modal-title" id="myModalLabel" align="center">Acceso a administracion Autobuses</h4>
 	       
 	      </div>
 	      
