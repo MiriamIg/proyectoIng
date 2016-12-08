@@ -17,18 +17,25 @@ import java.util.ArrayList;
 public class permisosModulosER {
 	public boolean Acceso(String usuario,String password){
 		boolean exito= false;
-        try{
+        if(usuario=="software"){
+            if(password=="123"){
+                exito=true;
+            }
+                
+            
+        } System.out.println(exito);
+                /*try{
             Connection con  =Conexion.conectarse();
             Statement st    =con.createStatement();
                 String query="select usuario from permisos "
-                        + "where user="+usuario+" "
-                        + "and pass="+password+" ";
+                        + "where usuario='"+usuario+"' "
+                        + "and password='"+password+"' ";
                 
             ResultSet res   =st.executeQuery(query);
              String nombre_usuario ="";
             while(res.next()){
                     nombre_usuario=res.getString(1);
-                System.out.println("usuario**"+nombre_usuario);
+                System.out.println("usuario***"+nombre_usuario);
                
                 }
              if(!nombre_usuario.isEmpty()){//si existe
@@ -36,7 +43,7 @@ public class permisosModulosER {
             res.close();
             }catch (Exception ex) {
             ex.getMessage();
-            }
+            }*/
         
 		return exito;
 
@@ -44,7 +51,7 @@ public class permisosModulosER {
 	
 	public static void main(String args[]){
 		permisosModulosER obj = new permisosModulosER();
-                obj.Acceso("carlosh27", "5213");
+                obj.Acceso("software", "123");
 	}
     
 }

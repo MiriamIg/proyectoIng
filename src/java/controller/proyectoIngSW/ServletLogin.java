@@ -20,15 +20,25 @@ import model.proyectoIngSW.permisosModulosER;
  */
 public class ServletLogin extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        permisosModulosER permiso= new permisosModulosER();	
-		String usuario		=request.getParameter("user");
-        	String password		=request.getParameter("passw");
-        
-        	out.print(permiso.Acceso(usuario, password));     
-
-    }
-
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            
+            permisosModulosER permiso= new permisosModulosER();	
+		String usuario		=request.getParameter("usuario");
+        	String password		=request.getParameter("password");
+                boolean exito;
+       if(usuario=="software"){
+            if(password=="123"){
+                exito=true;
+            }else{exito=false;}
+                
+       // out.print(permiso.Acceso(usuario, password));
+         //       if(usuario=="software" && password="123"){
+       //         out.print(false);
+     //}
+     }else{exito=false;}
+       out.print(exito);
+}
 }
